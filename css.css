@@ -1,0 +1,22 @@
+.table{    
+    background-color: rgba(230, 36, 26, 0.464);
+}
+.table2{    
+    background-color: rgba(235, 144, 69, 0.606);
+}
+
+.input{
+    background-color: rgba(246, 242, 0, 0.666);
+}
+.list{
+    background-color: rgba(49, 228, 49, 0.421);
+}
+
+.form {
+    color: rgb(35, 137, 151);
+    margin-top: -0.2em;
+  }
+.formstyle {
+    background-color: rgb(163, 211, 216);
+    padding: 20px;
+}

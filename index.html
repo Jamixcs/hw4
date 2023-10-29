@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js.js"></script>
+    <link rel="stylesheet" href="./css.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>20230211 HW</h1>
+    <div class="table">
+    <p>(a) 請試試看把表格的標題(th)包在tbody中，內容(td)包在thead中。請問會發生甚麼事?</p>
+    <table>
+       <thead>
+        <tr>
+            <td>td在thead裏面</td>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+            <th>th在tbody裏面</th>
+        </tr>
+       </tbody>          
+    </table>
+    <br>
+    <table>
+        <thead>
+            <th>th在thead裏面</th>
+        </thead>
+        <tbody>
+            <td>td在tbody裏面</td>
+        </tbody>
+    </table>
+    <pre>-> th裏的字，無論在thead,tbody都是粗體；
+   td裏的字，無論在thead,tbody都是一般體。</pre>
+    <p>-> 所以thead,tbody不影響class,主要還是看th,td</p>
+    </div>
+<div class="table2">
+<pre>
+(b) 請寫出一個與以下相同的表格
+  1. 需使用到caption、thead、tbody、tfoot元素
+  2. 左邊辦公用品需向下合併儲存格
+  3. 最後一列需在tfoot中，並且前四合合併儲存格
+</pre>
+<table border="1">
+    <caption>請購單</caption>
+    <thead>
+<tr>
+<th>請購類別</th>
+<th>請購品項</th>
+<th>數量</th>
+<th>單價</th>
+<th>總價</th>
+</tr>
+    </thead>
+    <tbody>
+<tr>
+<td rowspan="3">辦公用品</td>
+<td>鉛筆</td>
+<td>50</td>
+<td>$10</td>
+<td>$500</td>
+</tr>
+<tr>
+    <td>原子筆</td>
+    <td>20</td>
+    <td>$20</td>
+    <td>$400</td>
+</tr>
+<tr>
+    <td>剪刀</td>
+    <td>70</td>
+    <td>$35</td>
+    <td>$2450</td>
+</tr>
+<tr>
+    <td>食品</td>
+    <td>咖啡豆</td>
+    <td>10</td>
+    <td>$350</td>
+    <td>$3500</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<th colspan="4">總金額</th>
+<td>$6850</td>
+</tr>
+    </tfoot>
+</table>
+</div>
+<h2 class="input">
+(c)請自行閱讀W3C中的其他Input
+</h2>
+<div class="list">
+<pre>
+(d)請寫出一個與以下相同的表單
+1.會員編號欄位需預帶值，且使用者可複製編號但不可編輯
+2.姓名、帳號、密碼與密碼確認、手機號碼欄位在使用者未填寫時，請顯示提示文字，且這些欄位都是必填欄位
+3.密碼與密碼確認需隱碼
+4.帳號右方需有按鈕檢核是否帳號重複(請直接顯示彈窗即可)
+5.手機號碼需加入檢核，前兩碼為09，後面帶8碼數字
+6.性別、身分需預設在其中一個選項
+7.最後上傳檔案請限制jpg與png兩種類型
+8.最終submit前檢核:
+9.密碼需要與密碼確認相同，否則需跳彈窗提醒
+10.若檢核通過，顯示彈窗並且內容為「您好 (姓名) ! 歡迎加入會員」
+</pre>
+</div>
+
+<div class="formstyle">
+<h1 class="form">Form</h1>
+<form method="post" name="register" action="http://localhost:3000/register" onsubmit="return checkvalid()">
+    <!--會員編號-->
+    <label for="number1">會員編號：</label>
+    <input type="text" name="number" id="number1" disabled value="S12345001">
+    <br><br>
+    <!--姓名-->
+    <label for="name">姓名：</label>
+    <input type="text" name="name" id="name" placeholder="請輸入姓名" required>
+    <br><br>
+    <!--帳號-->
+    <label for="account">帳號：</label>
+    <input type="text" name="account" id="account" placeholder="請輸入帳號" required>
+    <button type="button" onclick="alert('此帳號可以使用')">確認此帳號是否可使用</button>
+    <br><br>
+    <!--密碼-->
+    <label for="password">密碼：</label>
+    <input type="password" name="password" id="password" placeholder="請輸入密碼" required>
+    <br><br>
+    <!--密碼確認-->
+    <label for="password2">密碼確認：</label>
+    <input type="password" name="password2" id="password2" placeholder="請再次輸入密碼" required>
+    <br><br>
+    <!--手機號碼-->
+    <label for="number2">手機號碼：</label>
+    <input type="text" name="number2" id="number2" placeholder="請輸入手機號碼" required pattern="^09\d{8}$">
+    <br><br>
+    <!--性別-->
+    <label for="gender">性別：</label>
+    <input type="radio" name="gender" id="gender" checked>男
+    <input type="radio" name="gender" id="gender">女
+    <input type="radio" name="gender" id="gender">不告訴你
+    <br><br>
+    <!--身份-->
+    <label for="identify">請選擇最符合您的身份：</label>
+    <select name="identify" id="identify">
+    <option value="0" selected>無業遊民</option>
+    <option value="1">上班族</option>
+    <option value="2">下班族</option>
+    </select><br><br>
+    <!--想說什麼-->
+    <label for="say">有什麼話想說嗎</label><br>
+    <textarea name="textarea" id="say" cols="30" rows="4"></textarea>
+    <br><br>
+    <!--怎麼知道我們-->
+    <label for="how">您是如何知道我們的？</label><br>
+    <input type="checkbox" name="newspaper" id="how"> 報紙<br>
+    <input type="checkbox" name="internet" id="how"> 網路<br>
+    <input type="checkbox" name="news" id="how"> 新聞媒體<br>
+    <input type="checkbox" name="friends" id="how"> 朋友<br><br>
+    <!--大頭貼上傳-->
+    <label for="fileul">上傳會員大頭貼：</label><input type="file" id="fileul" accept="image/jpg,image/png"><br><br>
+    <!--註冊會員-->
+    <button type="submit">註冊會員</button>
+</form>
+</div>
+
+</body>
+</html>
